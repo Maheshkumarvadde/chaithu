@@ -1,2 +1,11 @@
-# chaithu
-testing
+execution:
+- executor: selenium
+  scenario: open_page
+
+scenarios:
+  open_page:
+    browser: Chrome
+    timeout: 10s
+    think-time: 3s
+    requests:
+    - url: http://blazedemo.com
