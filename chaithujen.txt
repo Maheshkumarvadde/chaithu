@@ -1,11 +1,13 @@
-execution:
-- executor: selenium
-  scenario: open_page
+using System;
 
-scenarios:
-  open_page:
-    browser: Chrome
-    timeout: 10s
-    think-time: 3s
-    requests:
-    - url: http://blazedemo.com
+class HelloWorld
+{
+    static void Main()
+    {
+#if DebugConfig
+        Console.WriteLine("WE ARE IN THE DEBUG CONFIGURATION");
+#endif
+
+        Console.WriteLine("Hello, world!");
+    }
+}
