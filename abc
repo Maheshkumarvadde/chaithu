@@ -1,0 +1,375 @@
+1.
+
+//write a program to read the content from file and store it into map values
+
+File file=new File("D://UST DevOps Training//Groovy//Practice/content.txt")
+file.write "Student: Nagaraju\nStudentID: 213\n"
+new File("D://UST DevOps Training//Groovy//Practice/content.txt").eachLine
+{
+details -> println details
+def map=["$details"]
+println map 
+println(map.size())
+}
+
+
+
+//---------------------------------------
+
+/*
+1. Write a program to store the patients health details like patientname,diagnosys, admissiondate, payment, year. 
+find out the all the patients admitted in the perticuler year.
+2. Write a program to sort the patient name in the assending order.
+*/
+
+class PatientsHealthDetails
+{
+String pname
+String admissiondate
+Integer year
+String diagnosys
+
+public String getPname()
+{
+return this.pname;
+}
+public void setPname(String pname)
+{
+this.pname=pname;
+}
+
+public String getAdmissiondate()
+{
+return this.admissiondate;
+}
+public void setAdmissiondate(String admissiondate)
+{
+this.admissiondate=admissiondate;
+}
+
+public int getYear()
+{
+return this.year;
+}
+public void setYear(int year)
+{
+this.year=year;
+}
+
+public String getDiagnosys()
+{
+return this.diagnosys;
+}
+public void setDiagnosys(String diagnosys)
+{
+this.diagnosys=diagnosys;
+}
+
+public static void main(String[] args)
+{
+PatientsHealthDetails patientHealth1= new PatientsHealthDetails();
+patientHealth1.setPname("Mike");
+patientHealth1.setAdmissiondate("12-Aug");
+patientHealth1.setYear(2022);
+patientHealth1.setDiagnosys("X-Ray");
+
+PatientsHealthDetails patientHealth2= new PatientsHealthDetails();
+patientHealth2.setPname("Peter");
+patientHealth2.setAdmissiondate("05-Jan");
+patientHealth2.setYear(2021);
+patientHealth2.setDiagnosys("Covid");
+
+PatientsHealthDetails patientHealth3= new PatientsHealthDetails();
+patientHealth3.setPname("Michal");
+patientHealth3.setAdmissiondate("21-July");
+patientHealth3.setYear(2019);
+patientHealth3.setDiagnosys("X-ray");
+
+PatientsHealthDetails patientHealth4= new PatientsHealthDetails();
+patientHealth4.setPname("Ross");
+patientHealth4.setAdmissiondate("18-June");
+patientHealth4.setYear(2022);
+patientHealth4.setDiagnosys("Blood-Test");
+
+PatientsHealthDetails patientHealth5= new PatientsHealthDetails();
+patientHealth5.setPname("Daniel");
+patientHealth5.setAdmissiondate("18-June");
+patientHealth5.setYear(2022);
+patientHealth5.setDiagnosys("Scanning");
+
+
+List<PatientsHealthDetails> patd=new ArrayList<PatientsHealthDetails>();
+patd.add(patientHealth1);
+patd.add(patientHealth2);
+patd.add(patientHealth3);
+patd.add(patientHealth4);
+patd.add(patientHealth5);
+
+
+List<PatientsHealthDetails> list1=new ArrayList<PatientsHealthDetails>();
+List<PatientsHealthDetails> list2=new ArrayList<PatientsHealthDetails>();
+List<PatientsHealthDetails> list3=new ArrayList<PatientsHealthDetails>();
+
+for (PatientsHealthDetails p: patd){
+if (p.getYear()==2020)
+{
+println "$p.pname admitted in $p.year"
+list1.add(p);
+}
+
+else
+{
+println "$p.pname admitted in $p.year"
+//list3.add(p);
+}
+/*
+for (PatientsHealthDetails p1:list1){
+println "$p1.pname admitted in $p.year"
+}
+
+for ( PatientsHealthDetails p2:list2){
+println "$p2.pname admitted in $p.year"
+}
+//println(list2.size());
+
+for ( PatientsHealthDetails p3:list3){
+println "$p3.pname admitted in $p.year"
+}
+//println(list3.size());
+*/
+//println(p.sort());
+}
+}
+}
+
+
+//-----------------------------------------------------------------//
+
+
+
+class Employee
+{
+String ename;
+String edept;
+String edesig;
+Integer esalary;
+
+public String getEname()
+{
+return this.ename;
+}
+public void setEname(String ename)
+{
+this.ename=ename;
+}
+public String getEdept()
+{
+return this.edept;
+}
+public void setEdept(String edept)
+{
+this.edept=edept;
+}
+public String getEdesig()
+{
+return this.edesig;
+}
+public void setEdesig(String edesig)
+{
+this.edesig=edesig;
+}
+public int getEsalary()
+{
+return this.esalary;
+}
+public void setEsalary(int esalary)
+{
+this.esalary=esalary;
+}
+public static void main(String[] args)
+{
+Employee employee= new Employee();
+employee.setEname("Srikanta");
+employee.setEdept("O");
+employee.setEdesig("manager");
+employee.setEsalary(100000);
+
+Employee employee1= new Employee();
+employee1.setEname("Murthy");
+employee1.setEdept("M");
+employee1.setEdesig("Cleark");
+employee1.setEsalary(10000);
+
+Employee employee2= new Employee();
+employee2.setEname("Ram");
+employee2.setEdept("C");
+employee2.setEdesig("Officer");
+employee2.setEsalary(500000);
+
+List<Employee> emp=new ArrayList<Employee>();
+emp.add(employee);
+emp.add(employee1);
+emp.add(employee2);
+for (Employee e: emp){
+if (e.getEdept()=="M")
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+int newsalary=e.esalary+(e.esalary*10/100)
+println "your new salary is $newsalary"
+}
+else if (e.getEdept()=="C")
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+}
+else 
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+}
+}
+}
+}
+
+//---------------------------------------------------------------------//
+1.Write a program to return strings?
+2.Write a program to return to list of values?
+3.Write a program to return to map of values?
+
+
+
+//==========================================================================//
+
+//Write a program to display the computer sales details like computername, price, saleyear, profit and display total sale in the corresponding year.class Employee
+class ComputerSales
+{
+String computer;
+Integer price;
+Integer saleyear;
+Integer profit;
+
+public String getComputer() {
+return this.computer;
+}
+public void setComputer(String compute){
+this.compute=compute;
+}
+
+public int getPrice(){
+return this.price;
+}
+public void setPrice(int price){
+this.price=price;
+}
+
+public int getSaleyear(){
+return this.saleyear;
+}
+public void setSaleyear(int saleyear){
+this.saleyear=saleyear;
+}
+
+public int getProfit(){
+return this.profit;
+}
+public void setProfit(int profit){
+this.profit=profit;
+}
+
+public static void main(String[] args)
+{
+ComputerSales computer1= new ComputerSales();
+computer1.setComputer("Dell");
+computer1.setPrice(60000);
+computer1.setSaleyear(2021);
+computer1.setProfit(9000);
+
+ComputerSales computer1= new ComputerSales();
+computer1.setComputer("Dell");
+computer1.setPrice(60000);
+computer1.setSaleyear(2021);
+computer1.setProfit(9000);
+
+ComputerSales computer1= new ComputerSales();
+computer1.setComputer("Dell");
+computer1.setPrice(60000);
+computer1.setSaleyear(2021);
+computer1.setProfit(9000);
+
+List<Employee> emp=new ArrayList<Employee>();
+emp.add(employee);
+emp.add(employee1);
+emp.add(employee2);
+for (Employee e: emp){
+if (e.getEdept()=="M")
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+int newsalary=e.esalary+(e.esalary*10/100)
+println "your new salary is $newsalary"
+}
+else if (e.getEdept()=="C")
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+}
+else 
+{
+println "$e.ename designation is $e.edesig and the salary is $e.esalary"
+}
+}
+}
+}
+
+
+//============================================================================================//
+
+//1.print the values in the below order using map 3 2 1 0
+
+def map=[ 3, 2, 1, 0]
+for (a in map)
+{
+println "Numbers are: $a"
+}
+//============================================================================================//
+
+//2.print the values in the below order
+//Studentfn: "Nagaraju"
+//Studentln: "Tadi"
+//StudentAddress: "Bangalore"
+//StudentState: "Karnataka"
+
+def b=[Studentfn: "Nagaraju", Studentln: "Tadi", StudentAddress: "Bangalore", StudentState: "Karnataka"]
+for (student in b)
+println student
+println (b.sort())
+b.put("College", "LBR")
+print b
+
+//============================================================================================//
+
+//3.Arranging Values in ascending order in above program
+
+def b=[Studentfn: "Nagaraju", Studentln: "Tadi", StudentAddress: "Bangalore", StudentState: "Karnataka"]
+for (student in b)
+println student
+println (b.sort())
+b.put("College", "LBR")
+print b
+
+//============================================================================================//
+
+//4. Sort the below using map
+//"Ram", "Raju", "Ravi","Ramesh", "Rajesh"
+
+def map=["Ram", "Raju", "Ravi","Ramesh", "Rajesh"]
+println (map.sort())
+println (map.add("Rana"))
+println map
+
+//============================================================================================//
+
+//5.add new namesh after Ramesh
+
+def map=["Ram", "Raju", "Ravi","Ramesh", "Rajesh"]
+println (map.sort())
+println (map.add("Rana"))
+println map
+
+//============================================================================================//
