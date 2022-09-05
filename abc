@@ -560,3 +560,20 @@ lass SwapExample {
 	}
 
 }
+
+
+---------------------------------
+
+import groovy.xml.MarkupBuilder
+def mv= new MarkupBuilder()
+mv.collection(theater:'Vishwanath')
+{
+movie(title:'LIGER')
+type('Fighting')
+format('HD')
+year('2022')
+rating('1')
+stars('10')
+description('Talk about the boxing')
+}
+
