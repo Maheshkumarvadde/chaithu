@@ -373,3 +373,51 @@ println (map.add("Rana"))
 println map
 
 //============================================================================================//
+import groovy.xml.MarkupBuilder 
+def mv= new MarkupBuilder() 
+def mb= [
+1: ['Bahubali','war','HD','2018','4','Action Movie'],
+2: ['RRR','war','HD','2018','9','Action Movie'],
+3: ['Karthikeya2','war','HD','2018','9','Mythology Movie'],
+4: ['SeethaRamam','war','HD','2018','9','abc Movie'],
+5: ['abc','war','HD','2018','4','Animation Movie'] ]
+def mb1= new MarkupBuilder()
+def movieDB= mb1.collection('shelf':'New Arrivals')
+{
+mb.each {
+sd -> 
+     mb1.movie('title':sd.value[0])
+     {
+     type(sd.value[1])
+     format(sd.value[2])
+     year(sd.value[3])
+     rating(sd.value[4])
+     description(sd.value[5])
+     }
+}
+}
+-------------------------------------
+
+to read the xml file
+
+import groovy.xml.MarkupBuilder
+import groovy.xml.XmlParser
+import groovy.util.*
+def parser= new XmlParser()
+def doc= parser.parse("C://Users/nscha/OneDrive/Desktop/XMLgroovy/sample.xml");
+doc.movie.each {
+bk ->
+  print("Movie Name :")
+  println "${bk['@title']}"
+  print("Movie Type :")
+  println "${bk.type[0].text()}"
+   print("Movie Format :")
+  println "${bk.format[0].text()}"
+   print("Movie Year :")
+  println "${bk.year[0].text()}"
+   print("Movie Rating :")
+  println "${bk.rating[0].text()}"
+   print("Movie Description:")
+  println "${bk.description[0].text()}"
+  println ("*********")
+}
