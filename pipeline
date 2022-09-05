@@ -18,3 +18,127 @@ pipeline {
 	    }
 	}
 }
+---------------------------------
+1)print the values in the below order using map 3 2 1 0 
+2.print the values in the below order 
+studentfn:"chaitra"
+studentln:"pula"
+studentaddress:"benguluru"
+student state:"KA"
+3.arrange the values in the assending order in above program
+4.sort the below using the map
+"CHAITRA","chai","chaithu"
+5.add any new names after chai
+
+
+
+
+
+1)def map = ['a':3, 'b':2, 'c':1, 'd':0]
+for ( e in map )
+ {
+    print "value = ${e.value}"
+}
+--------------------------------
+2)def map = [studentfn:"chaitra", studentln:"pula", studentaddress:"benguluru", studentstate:"KA"]
+map.each{entry -> println "$entry.key: $entry.value"}
+
+--------------------------------------
+3)def map = [studentfn:"chaitra", studentln:"pula", studentaddress:"benguluru", studentstate:"ka"]
+//map.each{entry -> println "$entry.key: $entry.value"}
+map = map.sort{it.value}
+map.each{entry -> println "$entry.key: $entry.value"}
+------------------------------------------
+4)def map = ["chai", "bha", "hema"]
+def newlst = map.sort()
+println(newlst)
+-----------------------------
+5)def list = ["bhavi", "pavi","chai", "pavi"]
+int j=1;
+for(int i = 0;i<j;i++)
+{
+if (list[i]=="chai")
+{
+list.addAll(i+1,"new Name")
+j=i }
+ else
+  
+    j=j+1
+}
+println "$list"
+
+
+--------------------------------------------
+
+write a programe to read the content from file and store it into map and print the values.
+
+
+File file=new File("D://File/a.txt")
+/*FileReader fr=new FileReader(file)
+println(fr)
+*/
+println(file.readLines())
+new File("D://File/a.txt").eachLine
+{
+line -> println line
+}
+
+------------------------------------------------
+written of string
+
+
+Map getInformation ()  {
+  return [isClear:true, reason:"reason why"]
+}
+def result =  getInformation ()
+if(result.isClear){
+ 
+   result.reason
+   
+}
+---------------------------------------
+
+class Example {
+   static void main(String[] args) { 
+      Integer x = 5;
+        
+      System.out.println(x.toString()); 
+      System.out.println(Integer.toString(12)); 
+   } 
+}
+--------------------------------
+list of values
+
+class Example {
+   static void main(String[] args) {
+      def lst = [25, 30, 45, 33, 90, 150];
+      println(lst.get(4));
+      println(lst.get(3));
+   } 
+}
+
+
+------------------------
+
+map of values
+
+//def employee=["ram":21, "raju":25, "ravi":22]
+Map<Integer, String> map=new HashMap<Integer, String>();
+map.put(21, "ram");
+map.put(23, "rajesh");
+map.put(25, "mahesh");
+println(map.keySet())
+println(map.values())
+
+-----------------------------
+Reverse string
+
+class Rev_Demo{
+static void main(String[] args){
+ String a = "Demo Assesment5"
+ println(a.reverse());
+ }
+ }
+------------------------------------------------------------------------------------
+
+
