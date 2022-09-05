@@ -421,3 +421,73 @@ bk ->
   println "${bk.description[0].text()}"
   println ("*********")
 }
+
+
+------------------------------------
+
+import groovy.yaml.YamlSlurper
+//def builder=new yamlBuilder()
+def configYaml = '''\
+---
+application: "sample app"
+cars :
+- name 'Honda City'
+- make 'Honda'
+- year '2022'
+- country 'India'
+record :
+- type 'Speed'
+- description '27km/hr'
+'''
+def config = new YamlSlurper().parseText(configYaml)
+println(config)
+
+---------------------------------------
+
+import groovy.yaml.YamlBuilder
+def yaml=new groovy.yaml.YamlBuilder()
+yaml name: "Srikanta", Id: 1234
+assert yaml.toString() == '''\
+---
+name: "Srikanta"
+Id: 1234
+'''
+println(yaml)
+println(yaml.toString())
+
+--------------------------------------
+
+import groovy.yaml.YamlBuilder
+def yaml=new groovy.yaml.YamlBuilder()
+def result=yaml{[1,2,3,4,5,6]}
+assert result instanceof List
+assert yaml.toString() == '''\
+---
+- 1
+- 2
+- 3
+- 4
+- 4
+- 5
+- 6
+'''
+println(result)
+
+----------------------------------------
+import groovy.yaml.YamlBuilder
+class Author{
+String name;
+}
+def authors=[new Author(name:"Srikanta"), new Author(name: "Ram"), new Author(name: "Murthy"), new Author(name: "Manju")]
+def yaml=new groovy.yaml.YamlBuilder()
+yaml authors, { Author author ->
+ name author.name
+ }
+ assert yaml.toString() == '''\
+---
+- name: "Srikanta"
+- name: "Ram"
+- name: "Murthy"
+- name: "Manju"
+'''
+ println(yaml)
