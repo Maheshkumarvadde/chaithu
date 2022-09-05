@@ -577,3 +577,54 @@ stars('10')
 description('Talk about the boxing')
 }
 
+class Customer
+{
+String name
+Integer id
+String adress
+String state
+String country
+public String getName()
+{
+return this.name;
+}
+public void setName(String name)
+{
+this.name=name;
+}
+public int getId()
+{
+return this.id;
+}
+public void setId(Integer id)
+{
+this.id=id;
+}
+public String getAdress()
+{
+return this.adress;
+}
+public void setState(String state)
+{
+this.state=state;
+}
+public void setCountry(String country)
+{
+this.country=country;
+}
+public static void main(String[] args)
+{
+Customer customer=new Customer();
+customer.setName("HeritageInsurance");
+customer.setId(123);
+customer.setAdress("Hyderabad");
+customer.setState("Telangana");
+customer.setCountry("India");
+println(customer.getName());
+println(customer.getId());
+println(customer.getAdress());
+println(customer.getState());
+println(customer.getCountry());
+}
+}
+
