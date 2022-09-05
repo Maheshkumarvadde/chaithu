@@ -491,3 +491,52 @@ yaml authors, { Author author ->
 - name: "Manju"
 '''
  println(yaml)
+ 
+ 
+ -----------------------------------------------
+ 
+ return of string
+ 
+ class Example {
+   static void main(String[] args) {
+      Integer x = 5;
+        
+      System.out.println(x.toString());
+      System.out.println(Integer.toString(12));
+   }
+}
+
+----------------------------
+
+Map getInformation ()  {
+  return [isClear:true, reason:"reason why"]
+}
+def result =  getInformation ()
+if(result.isClear){
+
+   result.reason
+
+}
+
+-----------------------------------
+
+list of values
+
+class Example {
+   static void main(String[] args) {
+      def lst = [25, 30, 45, 33, 90, 150];
+      println(lst.get(4));
+      println(lst.get(3));
+   }
+}
+
+---------------------------
+map of values
+
+//def employee=["ram":21, "raju":25, "ravi":22]
+Map<Integer, String> map=new HashMap<Integer, String>();
+map.put(21, "ram");
+map.put(23, "rajesh");
+map.put(25, "mahesh");
+println(map.keySet())
+println(map.values())
