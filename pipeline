@@ -141,4 +141,80 @@ static void main(String[] args){
  }
 ------------------------------------------------------------------------------------
 
+pipeline {
+    agent any
+        environment
+          {
+               maven : opt/jenkins/maven/maven-3.6.8
+               jdk   : opt/jenkins/jdk/jdk-11.0.1
+           
+           }
+    stages {
+        stage("Clone") {
+            steps {
+                git clone "htpp://www.git.com.sampleproject.git"
+                echo "cloning the project from the GIT Repo"
+            }
+        }
+        stage("CodeQuality") {
+            steps {
+                sh 'run "http://www.sonar.com/sonar%22'
+                echo "Sonar code quality checking"
+                if(sonar.result > 80)
+		{
+                echo "Build success"
+		}
+                else
+                {		
+                echo "Build Failed"
+                sh 'run SNS mail notification'
+                }
+
+            }
+        }
+	stage("CodeCoverage") {
+            steps {
+                sh 'run "http://www.jacoco.com/jacoco%22'
+                echo "Jacoco running successfully"
+                if(coverage.result > 90)
+                {
+			echo "Build success"
+			}
+			else
+			{
+			echo "Build failed"
+			sh 'run SNS mail notification'
+			}
+          }
+       }
+
+	stage("Build") {
+            steps {
+                if ( BRANCH_NAME == 'Dev' || BRANCH_NAME == 'QA')
+                {
+                sh 'mvn clean install'
+                echo "Building application successfully"
+                }
+            }
+        }
+
+
+	stage("Test") {
+            steps {
+                sh 'mvn -D.skip.test=false'
+                echo "Testing application successfully"
+            }
+        }
+	stage("Deploy") {
+            steps {
+                sh 'docker run containerId' 
+                echo "Deployed application  successfully"
+            }
+        }
+    }
+       post any {
+             sh 'run SNS mail notification'
+      }
+}
+
 
